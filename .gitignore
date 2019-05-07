@@ -1,0 +1,8 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/AngularClient/node_modules
+/RestService/.vs/RestService
+/RestService/RestService/bin/Debug/netcoreapp2.2
+/RestService/RestService/obj
