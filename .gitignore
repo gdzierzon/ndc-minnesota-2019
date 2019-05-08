@@ -6,3 +6,5 @@
 /RestService/.vs/RestService
 /RestService/RestService/bin/Debug/netcoreapp2.2
 /RestService/RestService/obj
+/BudgetService/BudgetService.API/bin/Debug/netcoreapp2.2
+/BudgetService/BudgetService.API/obj
