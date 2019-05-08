@@ -28,6 +28,18 @@ namespace BudgetService.API.Controllers
             return await _context.Expenses.ToListAsync();
         }
 
+        // GET: api/Expenses
+        [HttpGet("page")]
+        public async Task<ActionResult<IEnumerable<Expense>>> GetExpensesPage(int page, int size)
+        {
+            int startPage = page - 1;
+            int skip = startPage * size;
+            return await _context.Expenses
+                .Skip(skip)
+                .Take(size)
+                .ToListAsync();
+        }
+
         // GET: api/Expenses/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Expense>> GetExpense(int id)
@@ -110,10 +122,18 @@ namespace BudgetService.API.Controllers
         [HttpPost]
         public async Task<ActionResult<Expense>> PostExpense(Expense expense)
         {
-            _context.Expenses.Add(expense);
-            await _context.SaveChangesAsync();
+            try
+            {
+                _context.Expenses.Add(expense);
+                await _context.SaveChangesAsync();
 
-            return CreatedAtAction("GetExpense", new { id = expense.ExpenseId }, expense);
+                return CreatedAtAction("GetExpense", new { id = expense.ExpenseId }, expense);
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         // DELETE: api/Expenses/5
@@ -130,13 +150,6 @@ namespace BudgetService.API.Controllers
             await _context.SaveChangesAsync();
 
             return expense;
-        }
-
-        [HttpOptions]
-        public ActionResult Options()
-        {
-            HttpContext.Response.Headers.Add("Allow", "GET,POST,PUT,PATCH,DELETE,OPTIONS");
-            return Ok();
         }
 
         private bool ExpenseExists(int id)

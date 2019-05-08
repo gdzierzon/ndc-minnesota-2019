@@ -1,0 +1,51 @@
+<h2>Add category</h2>
+
+  <fieldset>  
+      <div class="form-group row">
+        <label for="user" class="col-sm-2 col-form-label">User</label>
+        <div class="col-sm-10">
+          <select class="form-control" [(ngModel)]="expense.userId">
+            <option *ngFor="let user of users" [value]="user.userId">{{user.firstName}} {{user.lastName}}</option>
+          </select>
+        </div>
+      </div> 
+      <div class="form-group row">
+        <label for="category" class="col-sm-2 col-form-label">User</label>
+        <div class="col-sm-10">
+          <select class="form-control" [(ngModel)]="expense.categoryId">
+            <option *ngFor="let category of categories" [value]="category.categoryId">{{category.title}}</option>
+          </select>
+        </div>
+      </div>
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Expense Name</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="expense.title" class="form-control" value="{{expense.title}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="amount" class="col-sm-2 col-form-label">Amount</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="expense.amount" class="form-control" value="{{expense.amount}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="date" class="col-sm-2 col-form-label">Date</label>
+      <div class="col-sm-10">
+        <input type="date" [(ngModel)]="expense.date" class="form-control" value="{{expense.date}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="description" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="expense.description" class="form-control" value="{{expense.description}}">
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="vendor" class="col-sm-2 col-form-label">Description</label>
+      <div class="col-sm-10">
+        <input type="text" [(ngModel)]="expense.vendor" class="form-control" value="{{expense.vendor}}">
+      </div>
+    </div>
+    <button class="btn btn-success" (click)='onSubmit()'>Submit</button>
+  </fieldset>

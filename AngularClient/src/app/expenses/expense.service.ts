@@ -11,6 +11,11 @@ export class ExpenseService {
 
   constructor(private http: HttpClient) { }
 
+  getExpensesPage(page: number, size: number): Observable<Expense[]> {
+    const url = `${this.expensesUrl}/page/?page=${page}&size=${size}`;
+    return this.http.get<Expense[]>(url);
+  }
+
   getExpenses(): Observable<Expense[]> {
     return this.http.get<Expense[]>(this.expensesUrl);
   }

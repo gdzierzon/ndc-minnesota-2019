@@ -10,6 +10,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { CategoriesComponent } from './categories/categories.component';
 import { CategoryInsertComponent } from './categories/category-insert/category-insert.component';
 import { ExpensesComponent } from './expenses/expenses.component';
+import { ExpenseInsertComponent } from './expenses/expense-insert/expense-insert.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ExpensesComponent } from './expenses/expenses.component';
     UsersComponent,
     CategoriesComponent,
     CategoryInsertComponent,
-    ExpensesComponent
+    ExpensesComponent,
+    ExpenseInsertComponent
   ],
   imports: [
     BrowserModule,

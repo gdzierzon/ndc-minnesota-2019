@@ -1,3 +1,37 @@
-<p>
-  expenses works!
-</p>
+<h2>Expenses</h2>
+<a routerLink="insert" class="btn btn-success">Add</a>
+
+<div class="page-navigation">
+  <div class="btn-toolbar" role="toolbar" aria-label="navigation">
+    <div class="btn-group mr-2" role="group" aria-label="First group">      
+      <div class="input-group-prepend">
+        <span class="input-group-text">page: {{page}}</span>
+      </div>
+      <button type="button" class="btn btn-success" (click)='onPrevClick()'>prev</button>
+      <button type="button" class="btn btn-success" (click)='onNextClick()'>next</button>
+    </div>
+  </div>
+</div>
+
+<table class="table table-hover" style="margin-top: 20px;">
+  <thead>
+    <tr class="table-dark">
+      <th>Id</th>
+      <th>User</th>
+      <th>Category</th>
+      <th>Title</th>
+      <th>Amount</th>
+      <th>Date</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let expense of expenses">
+      <td>{{expense.expenseId}}</td>
+      <td>{{expense.user.firstName}}</td>
+      <td>{{expense.category.title}}</td>
+      <td>{{expense.title}}</td>
+      <td>{{expense.amount | currency}}</td>
+      <td>{{expense.date | date}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -13,4 +13,15 @@ export class Expense {
 
     category?: Category;
     user?: User;
+
+    constructor() {
+        this.userId = 0;
+        this.categoryId = 0;
+        this.description = '';
+        this.title = '';
+        this.amount = 0;
+        this.date = new Date();
+        this.vendor = '';
+        this.isBusinessExpense = false;
+    }
 }

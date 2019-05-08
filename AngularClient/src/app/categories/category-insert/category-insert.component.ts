@@ -1,7 +1,6 @@
 import { CategoriesService } from './../categories.service';
 import { Category } from './../../models/category';
 import { Component, OnInit } from '@angular/core';
-import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 
 @Component({
